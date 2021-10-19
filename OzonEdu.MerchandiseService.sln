@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{B2144BD9-0EDB-47CD-9760-39ED3ED25AB8}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3FADE886-D1F1-4076-9F0D-A25363A6D3C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9974C143-871F-4921-9EE8-83AD9E3F0254}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OzonEdu.MerchandiseService.Api", "src\OzonEdu.MerchandiseService.Api\OzonEdu.MerchandiseService.Api.csproj", "{70DBA836-9092-43EA-BD74-B63D2FA9F75D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{70DBA836-9092-43EA-BD74-B63D2FA9F75D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70DBA836-9092-43EA-BD74-B63D2FA9F75D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70DBA836-9092-43EA-BD74-B63D2FA9F75D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70DBA836-9092-43EA-BD74-B63D2FA9F75D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{70DBA836-9092-43EA-BD74-B63D2FA9F75D} = {3FADE886-D1F1-4076-9F0D-A25363A6D3C7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {73EF7023-23ED-480B-9C30-6BF2EE7EC975}
+	EndGlobalSection
+EndGlobal
