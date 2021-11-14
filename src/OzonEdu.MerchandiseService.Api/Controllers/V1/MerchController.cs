@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Threading;
 using System.Threading.Tasks;
+using MediatR;
 using OzonEdu.MerchandiseService.Api.Models;
 using OzonEdu.MerchandiseService.HttpModels;
 
@@ -12,12 +13,15 @@ namespace OzonEdu.MerchandiseService.Api.Controllers.V1
     [Produces("application/json")]
     public class MerchController : ControllerBase
     {
-        public MerchController()
+        private readonly IMediator _mediator;
+
+        public MerchController(IMediator mediator)
         {
+            _mediator = mediator;
         }
 
-        [HttpGet("info/{id:int}")]
-        public async Task<ActionResult<MerchInfo>> GetInfoById(int id, CancellationToken token)
+        [HttpGet("info/employee/{employeeId:int}")]
+        public async Task<ActionResult<MerchInfo>> GetInfoByEmployeeId(int employeeId, CancellationToken token)
         {
             throw new NotImplementedException();
         }

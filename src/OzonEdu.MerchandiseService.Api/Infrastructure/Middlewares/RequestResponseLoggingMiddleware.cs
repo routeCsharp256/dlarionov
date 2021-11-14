@@ -22,8 +22,8 @@ namespace OzonEdu.MerchandiseService.Api.Infrastructure.Middlewares
 
         public async Task Invoke(HttpContext context)
         {
-            //TODO: найти другой способ отсеивать grpc-запросы
-            var isGrpc = context.Request.ContentType?.Contains("application/grpc") ?? false;
+            var isGrpc = string.Compare("application/grpc", context.Request.ContentType,
+                StringComparison.OrdinalIgnoreCase) >= 0;
 
             if (isGrpc)
             {
@@ -46,6 +46,7 @@ namespace OzonEdu.MerchandiseService.Api.Infrastructure.Middlewares
 
         private async Task<string> FormatRequest(HttpRequest request)
         {
+            if (!request.ContentLength.HasValue) return "{}";
             var body = request.Body;
 
             var buffer = new byte[Convert.ToInt32(request.ContentLength)];

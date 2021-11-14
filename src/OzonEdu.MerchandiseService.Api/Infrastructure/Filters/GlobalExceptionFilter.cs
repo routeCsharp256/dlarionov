@@ -4,9 +4,9 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace OzonEdu.MerchandiseService.Api.Infrastructure.Filters
 {
-    public class GlobalExceptionFilter : ExceptionFilterAttribute
+    public class GlobalExceptionFilter : IExceptionFilter
     {
-        public override void OnException(ExceptionContext context)
+        public void OnException(ExceptionContext context)
         {
             var resultObject = new
             {
