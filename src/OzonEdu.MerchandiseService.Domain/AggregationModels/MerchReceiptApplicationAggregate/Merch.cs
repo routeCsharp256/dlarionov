@@ -3,6 +3,9 @@ using OzonEdu.MerchandiseService.Domain.Models;
 
 namespace OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptApplicationAggregate
 {
+    /// <summary>
+    /// Мерч
+    /// </summary>
     public class Merch : Entity
     {
         public Sku Sku { get; }

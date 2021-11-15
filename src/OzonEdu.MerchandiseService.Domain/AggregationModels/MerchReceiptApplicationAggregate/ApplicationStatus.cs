@@ -2,6 +2,9 @@
 
 namespace OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptApplicationAggregate
 {
+    /// <summary>
+    /// Статус заявки
+    /// </summary>
     public class ApplicationStatus : Enumeration
     {
         public static ApplicationStatus InQueue = new(1, nameof(InQueue));

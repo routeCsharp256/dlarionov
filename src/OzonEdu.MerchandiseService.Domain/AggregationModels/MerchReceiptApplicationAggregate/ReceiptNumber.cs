@@ -3,6 +3,9 @@ using OzonEdu.MerchandiseService.Domain.Models;
 
 namespace OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptApplicationAggregate
 {
+    /// <summary>
+    /// Номер заявки
+    /// </summary>
     public class ReceiptNumber : ValueObject
     {
         public ReceiptNumber(long value)

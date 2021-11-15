@@ -3,6 +3,9 @@ using OzonEdu.MerchandiseService.Domain.Models;
 
 namespace OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptApplicationAggregate
 {
+    /// <summary>
+    /// Набор выдаваемого мерча
+    /// </summary>
     public class MerchPack : Entity
     {
         /// <summary>

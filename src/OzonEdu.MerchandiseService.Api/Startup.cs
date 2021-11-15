@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using OzonEdu.MerchandiseService.Api.GrpcServices;
 using OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptApplicationAggregate;
+using OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptRequestAggregate;
 using OzonEdu.MerchandiseService.Infrastructure.Stubs;
 
 namespace OzonEdu.MerchandiseService.Api
@@ -36,6 +37,7 @@ namespace OzonEdu.MerchandiseService.Api
         private static void AddRepositories(IServiceCollection services)
         {
             services.AddScoped<IMerchReceiptApplicationRepository, MerchReceiptApplicationRepository>();
+            services.AddScoped<IMerchReceiptRepository, MerchReceiptRepository>();
         }
     }
 }

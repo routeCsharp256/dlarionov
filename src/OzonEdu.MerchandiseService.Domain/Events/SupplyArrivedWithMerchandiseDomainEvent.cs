@@ -6,13 +6,12 @@ namespace OzonEdu.MerchandiseService.Domain.Events
     /// <summary>
     /// Пришла поставка с новыми товарами
     /// </summary>
-    public class SupplyArrivedWithStockItemsDomainEvent : INotification
+    public class SupplyArrivedWithMerchandiseDomainEvent : INotification
     {
         public Sku StockItemSku { get; }
         public Quantity Quantity { get; }
 
-        public SupplyArrivedWithStockItemsDomainEvent(Sku stockItemSku,
-            Quantity quantity)
+        public SupplyArrivedWithMerchandiseDomainEvent(Sku stockItemSku, Quantity quantity)
         {
             StockItemSku = stockItemSku;
             Quantity = quantity;

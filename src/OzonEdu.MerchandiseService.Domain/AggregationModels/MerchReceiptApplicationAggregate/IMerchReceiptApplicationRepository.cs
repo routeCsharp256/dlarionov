@@ -8,7 +8,7 @@ namespace OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptApplic
 {
     public interface IMerchReceiptApplicationRepository : IRepository<MerchReceiptApplication>
     {
-        Task<MerchReceiptApplication> FindByEmployeeEmailAsync(Email email, CancellationToken cancellationToken);
+        Task<IReadOnlyList<MerchReceiptApplication>> FindByEmployeeEmailAsync(Email email, CancellationToken cancellationToken);
 
         Task<MerchReceiptApplication> FindByIdAsync(int id, CancellationToken cancellationToken);
 

@@ -2,6 +2,9 @@
 
 namespace OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptApplicationAggregate
 {
+    /// <summary>
+    /// Размер одежды
+    /// </summary>
     public class ClothingSize : Enumeration
     {
         public static ClothingSize XS = new(1, nameof(XS));

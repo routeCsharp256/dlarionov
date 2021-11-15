@@ -8,7 +8,7 @@ namespace OzonEdu.MerchandiseService.Infrastructure.Stubs
 {
     public class MerchReceiptApplicationRepository : IMerchReceiptApplicationRepository
     {
-        public Task<MerchReceiptApplication> FindByEmployeeEmailAsync(Email email, CancellationToken cancellationToken)
+        public Task<IReadOnlyList<MerchReceiptApplication>> FindByEmployeeEmailAsync(Email email, CancellationToken cancellationToken)
         {
             throw new System.NotImplementedException();
         }

@@ -4,6 +4,9 @@ using OzonEdu.MerchandiseService.Domain.Models;
 
 namespace OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptApplicationAggregate
 {
+    /// <summary>
+    /// Мерч и его количество позиций
+    /// </summary>
     public class MerchPosition : Entity
     {            
         public Merch Merch { get; }

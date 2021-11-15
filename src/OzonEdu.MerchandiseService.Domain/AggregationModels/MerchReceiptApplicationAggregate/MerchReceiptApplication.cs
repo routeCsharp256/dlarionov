@@ -3,17 +3,20 @@ using OzonEdu.MerchandiseService.Domain.Models;
 
 namespace OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptApplicationAggregate
 {
-    public class MerchReceiptApplication : Entity
+    /// <summary>
+    /// Заявка на получение набора мерча
+    /// </summary>
+    public class MerchReceiptApplication : Entity, IAggregationRoot
     {
         public MerchReceiptApplication(ReceiptNumber receiptNumber,
-            Employee emloyeeId,
+            Employee employee,
             MerchPack merchPack,
             ClothingSize size,
             ApplicationStatus status,
             Date date)
         {
             ReceiptNumber = receiptNumber;
-            EmployeeId = emloyeeId;
+            Employee = employee;
             MerchPack = merchPack;
             ClothingSize = size;
             SetApplicationStatus(status);
@@ -21,7 +24,7 @@ namespace OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptApplic
         }
 
         public ReceiptNumber ReceiptNumber { get; }
-        public Employee EmployeeId { get; }
+        public Employee Employee { get; }
         public MerchPack MerchPack { get; }
         public ClothingSize ClothingSize { get; }
         public ApplicationStatus ApplicationStatus { get; private set; }

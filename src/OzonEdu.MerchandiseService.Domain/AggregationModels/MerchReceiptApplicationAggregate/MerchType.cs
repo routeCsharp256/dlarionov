@@ -2,6 +2,9 @@
 
 namespace OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptApplicationAggregate
 {
+    /// <summary>
+    /// Тип мерча
+    /// </summary>
     public class MerchType : Enumeration
     {
         public static MerchType Сlothing = new(1, nameof(Сlothing));
