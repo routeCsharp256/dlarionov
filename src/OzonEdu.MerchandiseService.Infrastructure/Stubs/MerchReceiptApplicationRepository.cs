@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptApplicationAggregate;
@@ -8,34 +9,40 @@ namespace OzonEdu.MerchandiseService.Infrastructure.Stubs
 {
     public class MerchReceiptApplicationRepository : IMerchReceiptApplicationRepository
     {
-        public Task<IReadOnlyList<MerchReceiptApplication>> FindByEmployeeEmailAsync(Email email, CancellationToken cancellationToken)
+        private MerchReceiptApplication _merchReceiptApplication =
+            MerchReceiptApplication.Create(Employee.Create(Email.Create("www@mail.ru"), ClothingSize.L, "Vadim Garaev"),
+                new MerchPack("Pen", new List<Merch> { new Merch(Sku.Create(1), "pen", MerchType.Stationery) }),
+                Date.Create(DateTimeOffset.Now),
+                new List<MerchReceiptApplication>());
+        
+        public async Task<IReadOnlyCollection<MerchReceiptApplication>> FindByEmployeeEmail(Email email, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            return new List<MerchReceiptApplication>() { _merchReceiptApplication };
         }
 
-        public Task<MerchReceiptApplication> FindByIdAsync(int id, CancellationToken cancellationToken)
+        public async Task<MerchReceiptApplication> FindById(int id, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            return _merchReceiptApplication;
         }
 
-        public Task<IReadOnlyList<MerchReceiptApplication>> FindByIdsAsync(IReadOnlyList<int> id, CancellationToken cancellationToken)
+        public async Task<IReadOnlyCollection<MerchReceiptApplication>> FindByIds(IReadOnlyList<int> id, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            return new List<MerchReceiptApplication>() { _merchReceiptApplication };
         }
 
-        public Task<IReadOnlyList<MerchReceiptApplication>> GetAllAsync(CancellationToken cancellationToken)
+        public async Task<IReadOnlyCollection<MerchReceiptApplication>> GetAll(CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            return new List<MerchReceiptApplication>() { _merchReceiptApplication };
         }
 
-        public Task<MerchReceiptApplication> CreateAsync(MerchReceiptApplication merchReceiptAppToCreate, CancellationToken cancellationToken)
+        public async Task<MerchReceiptApplication> Create(MerchReceiptApplication merchReceiptAppToCreate, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            return merchReceiptAppToCreate;
         }
 
-        public Task<MerchReceiptApplication> UpdateAsync(MerchReceiptApplication merchReceiptAppToUpdate, CancellationToken cancellationToken)
+        public async Task<MerchReceiptApplication> Update(MerchReceiptApplication merchReceiptAppToUpdate, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            return merchReceiptAppToUpdate;
         }
     }
 }

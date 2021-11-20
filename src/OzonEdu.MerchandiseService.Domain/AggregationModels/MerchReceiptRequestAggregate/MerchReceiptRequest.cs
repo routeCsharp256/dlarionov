@@ -41,7 +41,7 @@ namespace OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptReques
         }
 
         /// <summary>
-        /// Смена статуса у заявки на пополнение склада
+        /// Смена статуса у заявки на  склада
         /// </summary>
         /// <param name="status"></param>
         /// <exception cref="Exception"></exception>

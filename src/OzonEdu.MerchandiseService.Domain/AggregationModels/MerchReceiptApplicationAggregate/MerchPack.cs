@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using OzonEdu.MerchandiseService.Domain.Events.MerchReceiptApplicationAggregate;
 using OzonEdu.MerchandiseService.Domain.Models;
 
 namespace OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptApplicationAggregate
@@ -8,29 +11,50 @@ namespace OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptApplic
     /// </summary>
     public class MerchPack : Entity
     {
-        /// <summary>
-        /// Набор мерча, выдаваемый сотруднику при устройстве на работу.
-        /// </summary>
-        public static MerchPack WelcomePack = new(10, nameof(WelcomePack), new List<MerchPosition>());
-        /// <summary>
-        /// Набор мерча, выдаваемый сотруднику при посещении конференции в качестве слушателя.
-        /// </summary>
-        public static MerchPack ConferenceListenerPack = new(20, nameof(ConferenceListenerPack), new List<MerchPosition>());
-        /// <summary>
-        /// Набор мерча, выдаваемый сотруднику при посещении конференции в качестве спикера.
-        /// </summary>
-        public static MerchPack ConferenceSpeakerPack = new(30, nameof(ConferenceSpeakerPack), new List<MerchPosition>());
-        /// <summary>
-        /// Набор мерча, выдаваемый сотруднику при успешном прохождении испытательного срока.
-        /// </summary>
-        public static MerchPack ProbationPeriodEndingPack = new(40, nameof(ProbationPeriodEndingPack), new List<MerchPosition>());
-        /// <summary>
-        /// Набор мерча, выдаваемый сотруднику за выслугу лет.
-        /// </summary>
-        public static MerchPack VeteranPack = new(50, nameof(VeteranPack), new List<MerchPosition>());
-
-        public MerchPack(int id, string name, IReadOnlyList<MerchPosition> merchPositionCollection)
+        public MerchPack(string name, IReadOnlyCollection<Merch> merchCollection)
         {
+            Name = name;
+            MerchCollection = merchCollection.ToList();
+        }
+
+        public string Name { get; private set; }
+        public IReadOnlyCollection<Merch> MerchCollection { get; private set; }
+
+        public MerchPack Create(string name, IReadOnlyCollection<Merch> merchCollection)
+        {
+            if (merchCollection.Count == 0)
+            {
+                throw new ArgumentException($"{nameof(merchCollection)} is empty");
+            }
+
+            var newMerchPack = new MerchPack(name, merchCollection);
+
+            return newMerchPack;
+        }
+
+        /// <summary>
+        /// Изменить комплектацию набора
+        /// </summary>
+        /// <param name="merchCollection"></param>
+        public void ChangeMerchCollection(IReadOnlyCollection<Merch> merchCollection)
+        {
+            if (merchCollection.Count == 0)
+            {
+                throw new ArgumentException($"{nameof(merchCollection)} is empty");
+            }
+
+            MerchCollection = merchCollection;
+            ChangeMerchCollectionDomainEvent(this.Id);
+        }
+
+        /// <summary>
+        /// Изменение комплектации набора
+        /// </summary>
+        /// <param name="merchPackId"></param>
+        private void ChangeMerchCollectionDomainEvent(int merchPackId)
+        {
+            var orderStartedDomainEvent = new MerchPackMerchCollectionChanged(merchPackId);
+            AddDomainEvent(orderStartedDomainEvent);
         }
     }
 }

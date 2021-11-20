@@ -38,8 +38,8 @@ namespace OzonEdu.MerchandiseService.Api.Controllers.V1
         {
             var createStockItemCommand = new CreateMerchReceiptApplicationCommand
             {
-                EmployeeName = merchIssuanceViewModel.EmployeeName,
                 EmployeeEmail = merchIssuanceViewModel.EmployeeEmail,
+                EmployeeName = merchIssuanceViewModel.EmployeeName,
                 MerchPack = merchIssuanceViewModel.MerchPack,
                 ClothingSize = merchIssuanceViewModel.ClothingSize
             };

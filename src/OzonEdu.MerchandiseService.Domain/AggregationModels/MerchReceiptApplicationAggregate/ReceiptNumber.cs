@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using OzonEdu.MerchandiseService.Domain.Models;
 
 namespace OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptApplicationAggregate
@@ -14,6 +15,16 @@ namespace OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptApplic
         }
 
         public long Value { get; }
+
+        public static ReceiptNumber Create(long receiptNumberValue)
+        {
+            if (receiptNumberValue > 0)
+            {
+                return new ReceiptNumber(receiptNumberValue);
+            }
+
+            throw new ArgumentException($"Request number value is invalid: {receiptNumberValue}");
+        }
 
         protected override IEnumerable<object> GetEqualityComponents()
         {

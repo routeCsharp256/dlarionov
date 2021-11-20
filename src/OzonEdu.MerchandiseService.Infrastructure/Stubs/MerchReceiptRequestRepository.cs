@@ -4,19 +4,19 @@ using OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptRequestAgg
 
 namespace OzonEdu.MerchandiseService.Infrastructure.Stubs
 {
-    public class MerchReceiptRepository : IMerchReceiptRepository
+    public class MerchReceiptRequestRepository : IMerchReceiptRequestRepository
     {
-        public Task<MerchReceiptRequest> CreateAsync(MerchReceiptRequest itemToCreate, CancellationToken cancellationToken)
+        public async Task<MerchReceiptRequest> Create(MerchReceiptRequest itemToCreate, CancellationToken cancellationToken)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<MerchReceiptRequest> FindByIdAsync(int id, CancellationToken cancellationToken)
+        public async Task<MerchReceiptRequest> FindById(int id, CancellationToken cancellationToken)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<MerchReceiptRequest> FindByRequestNumberAsync(RequestNumber requestNumber, CancellationToken cancellationToken)
+        public async Task<MerchReceiptRequest> FindByRequestNumber(RequestNumber requestNumber, CancellationToken cancellationToken)
         {
             throw new System.NotImplementedException();
         }

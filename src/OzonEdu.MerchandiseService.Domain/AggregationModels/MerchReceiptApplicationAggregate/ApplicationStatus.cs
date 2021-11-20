@@ -7,10 +7,30 @@ namespace OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptApplic
     /// </summary>
     public class ApplicationStatus : Enumeration
     {
-        public static ApplicationStatus InQueue = new(1, nameof(InQueue));
-        public static ApplicationStatus Reserved = new(2, nameof(Reserved));
-        public static ApplicationStatus Cancelled = new(3, nameof(Cancelled));
-        public static ApplicationStatus ReceiveWaiting = new(4, nameof(ReceiveWaiting));
+        /// <summary>
+        /// Заявка создана
+        /// </summary>
+        public static ApplicationStatus Created = new(1,nameof(Created));
+        
+        /// <summary>
+        /// Заявка в очереди, на складе нет необходимой позиции
+        /// </summary>
+        public static ApplicationStatus InQueue = new(2, nameof(InQueue));
+        
+        /// <summary>
+        /// Сотрудник получил мерч
+        /// </summary>
+        public static ApplicationStatus Reserved = new(3, nameof(Reserved));
+        
+        /// <summary>
+        /// Заявка отменена
+        /// </summary>
+        public static ApplicationStatus Cancelled = new(4, nameof(Cancelled));
+        
+        /// <summary>
+        /// Ожидает получения сотрудником мерча
+        /// </summary>
+        public static ApplicationStatus ReceiveWaiting = new(5, nameof(ReceiveWaiting));
 
         public ApplicationStatus(int id, string name) : base(id, name)
         {

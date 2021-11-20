@@ -37,7 +37,8 @@ namespace OzonEdu.MerchandiseService.Api
         private static void AddRepositories(IServiceCollection services)
         {
             services.AddScoped<IMerchReceiptApplicationRepository, MerchReceiptApplicationRepository>();
-            services.AddScoped<IMerchReceiptRepository, MerchReceiptRepository>();
+            services.AddScoped<IMerchReceiptRequestRepository, MerchReceiptRequestRepository>();
+            services.AddScoped<IMerchPackRepository, MerchPackRepository>();
         }
     }
 }

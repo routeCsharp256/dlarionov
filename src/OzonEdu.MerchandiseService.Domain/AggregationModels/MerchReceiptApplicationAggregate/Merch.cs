@@ -8,15 +8,26 @@ namespace OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptApplic
     /// </summary>
     public class Merch : Entity
     {
-        public Sku Sku { get; }
-        public string Name { get; }
-        public MerchType Type { get; }
-
         public Merch(Sku sku, string name, MerchType type)
         {
             Sku = sku;
             Name = name;
             Type = type;
         }
+
+        /// <summary>
+        /// Идентификатор товара 
+        /// </summary>
+        public Sku Sku { get; }
+
+        /// <summary>
+        /// Наименование мерча
+        /// </summary>
+        public string Name { get; }
+
+        /// <summary>
+        /// Тип мерча
+        /// </summary>
+        public MerchType Type { get; }
     }
 }

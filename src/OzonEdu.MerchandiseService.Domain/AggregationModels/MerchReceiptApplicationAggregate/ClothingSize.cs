@@ -1,4 +1,5 @@
-﻿using OzonEdu.MerchandiseService.Domain.Models;
+﻿using System;
+using OzonEdu.MerchandiseService.Domain.Models;
 
 namespace OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptApplicationAggregate
 {
@@ -16,6 +17,20 @@ namespace OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptApplic
 
         public ClothingSize(int id, string name) : base(id, name)
         {
+        }
+
+        public static ClothingSize Parse(string size)
+        {
+            return size.ToUpper() switch
+            {
+                nameof(XS) => XS,
+                nameof(S) => S,
+                nameof(M) => M,
+                nameof(L) => L,
+                nameof(XL) => XL,
+                nameof(XXL) => XXL,
+                _ => throw new ArgumentException("Unknown clothing size")
+            };
         }
     }
 }

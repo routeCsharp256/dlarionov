@@ -8,7 +8,14 @@ namespace OzonEdu.MerchandiseService.Domain.Events
     /// </summary>
     public class SupplyArrivedWithMerchandiseDomainEvent : INotification
     {
+        /// <summary>
+        /// Идентификатор товара
+        /// </summary>
         public Sku StockItemSku { get; }
+
+        /// <summary>
+        /// Количество экземпляров
+        /// </summary>
         public Quantity Quantity { get; }
 
         public SupplyArrivedWithMerchandiseDomainEvent(Sku stockItemSku, Quantity quantity)
