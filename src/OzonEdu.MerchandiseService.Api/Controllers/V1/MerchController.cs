@@ -1,9 +1,12 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading;
 using System.Threading.Tasks;
-using OzonEdu.MerchandiseService.Api.Models;
+using MediatR;
+using OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptApplicationAggregate;
 using OzonEdu.MerchandiseService.HttpModels;
+using OzonEdu.MerchandiseService.Infrastructure.Commands.CreateMerchReceiptApplication;
+using OzonEdu.MerchandiseService.Infrastructure.Queries.MerchReceiptApplicationAggregate;
 
 namespace OzonEdu.MerchandiseService.Api.Controllers.V1
 {
@@ -12,20 +15,36 @@ namespace OzonEdu.MerchandiseService.Api.Controllers.V1
     [Produces("application/json")]
     public class MerchController : ControllerBase
     {
-        public MerchController()
+        private readonly IMediator _mediator;
+
+        public MerchController(IMediator mediator)
         {
+            _mediator = mediator;
         }
 
-        [HttpGet("info/{id:int}")]
-        public async Task<ActionResult<MerchInfo>> GetInfoById(int id, CancellationToken token)
+        [HttpGet("info/employee/{email:string}")]
+        public async Task<ActionResult<IReadOnlyList<MerchPack>>> GetInfoByEmployeeEmail(string email, CancellationToken token)
         {
-            throw new NotImplementedException();
+            var result = await _mediator.Send(new GetAllEmployeeMerchPackQuery()
+            {
+                Email = email
+            }, token);
+
+            return Ok(result);
         }
 
         [HttpPost("issuance")]
         public async Task<ActionResult> AddIssuance(MerchIssuanceViewModel merchIssuanceViewModel, CancellationToken token)
         {
-            throw new NotImplementedException();
+            var createStockItemCommand = new CreateMerchReceiptApplicationCommand
+            {
+                EmployeeEmail = merchIssuanceViewModel.EmployeeEmail,
+                EmployeeName = merchIssuanceViewModel.EmployeeName,
+                MerchPack = merchIssuanceViewModel.MerchPack,
+                ClothingSize = merchIssuanceViewModel.ClothingSize
+            };
+            var result = await _mediator.Send(createStockItemCommand, token);
+            return Ok(result);
         }
     }
 }
