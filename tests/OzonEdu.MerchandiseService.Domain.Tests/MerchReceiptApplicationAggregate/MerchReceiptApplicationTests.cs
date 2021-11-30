@@ -119,7 +119,6 @@ namespace OzonEdu.MerchandiseService.Domain.Tests.MerchReceiptApplicationAggrega
                 applicationStatus, createAtDate, null);
 
             //Act
-            ;
 
             //Assert
             Assert.Throws<MerchReceiptApplicationGiveOutException>(() =>

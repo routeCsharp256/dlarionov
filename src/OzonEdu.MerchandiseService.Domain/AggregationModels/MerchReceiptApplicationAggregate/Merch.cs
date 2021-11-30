@@ -29,5 +29,10 @@ namespace OzonEdu.MerchandiseService.Domain.AggregationModels.MerchReceiptApplic
         /// Тип мерча
         /// </summary>
         public MerchType Type { get; }
+
+        /// <summary>
+        /// Размер одежды
+        /// </summary>
+        public ClothingSize ClothingSize { get; }
     }
 }
