@@ -5,6 +5,9 @@ VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{B2144BD9-0EDB-47CD-9760-39ED3ED25AB8}"
 	ProjectSection(SolutionItems) = preProject
+		deploy\docker-compose.yml = deploy\docker-compose.yml
+		deploy\Dockerfile = deploy\Dockerfile
+		deploy\entrypoint.sh = deploy\entrypoint.sh
 		readme.md = readme.md
 	EndProjectSection
 EndProject
@@ -24,7 +27,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OzonEdu.MerchandiseService.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OzonEdu.MerchandiseService.Infrastructure", "src\OzonEdu.MerchandiseService.Infrastructure\OzonEdu.MerchandiseService.Infrastructure.csproj", "{F158190C-E24D-4383-ADD8-0CE9B95B8032}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OzonEdu.MerchandiseService.Domain.Tests", "tests\OzonEdu.MerchandiseService.Domain.Tests\OzonEdu.MerchandiseService.Domain.Tests.csproj", "{8FDBDB3A-11DD-4118-AA2C-86FF66D386C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OzonEdu.MerchandiseService.Domain.Tests", "tests\OzonEdu.MerchandiseService.Domain.Tests\OzonEdu.MerchandiseService.Domain.Tests.csproj", "{8FDBDB3A-11DD-4118-AA2C-86FF66D386C0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OzonEdu.MerchandiseService.Migrator", "src\OzonEdu.MerchandiseService.Migrator\OzonEdu.MerchandiseService.Migrator.csproj", "{AEE06358-2013-4924-9D91-258AD6C80668}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,6 +65,10 @@ Global
 		{8FDBDB3A-11DD-4118-AA2C-86FF66D386C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FDBDB3A-11DD-4118-AA2C-86FF66D386C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FDBDB3A-11DD-4118-AA2C-86FF66D386C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AEE06358-2013-4924-9D91-258AD6C80668}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEE06358-2013-4924-9D91-258AD6C80668}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEE06358-2013-4924-9D91-258AD6C80668}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEE06358-2013-4924-9D91-258AD6C80668}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -72,6 +81,7 @@ Global
 		{B49A28B5-824D-4CED-817B-8C5592313301} = {3FADE886-D1F1-4076-9F0D-A25363A6D3C7}
 		{F158190C-E24D-4383-ADD8-0CE9B95B8032} = {3FADE886-D1F1-4076-9F0D-A25363A6D3C7}
 		{8FDBDB3A-11DD-4118-AA2C-86FF66D386C0} = {9974C143-871F-4921-9EE8-83AD9E3F0254}
+		{AEE06358-2013-4924-9D91-258AD6C80668} = {3FADE886-D1F1-4076-9F0D-A25363A6D3C7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {73EF7023-23ED-480B-9C30-6BF2EE7EC975}
